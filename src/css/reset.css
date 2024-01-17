@@ -33,3 +33,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+body {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+fieldset {
+  padding: 0;
+  resize: none;
+}
