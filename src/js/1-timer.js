@@ -61,7 +61,7 @@ function onStartTimer() {
     minsTimer.textContent = pad(minutes);
     secsTimer.textContent = pad(seconds);
 
-    if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+    if (different <= 0) {
       clearInterval(timer);
     }
   }, 1000);
@@ -90,9 +90,9 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-startButton.disabled = true;
+btnStart.disabled = true;
 
-startButton.addEventListener('click', () => {
+btnStart.addEventListener('click', () => {
   const selectedDate = datetimePicker.selectedDates[0];
   const endTime = selectedDate.getTime();
 
