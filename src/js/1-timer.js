@@ -31,8 +31,8 @@ const options = {
       });
       btnStart.disabled = true;
     } else {
-      btnStart.disabled = false;
       userSelectedDate = selectedDates[0];
+      btnStart.disabled = false;
     }
   },
 };
@@ -46,6 +46,8 @@ input.addEventListener('focus', () => {
 btnStart.addEventListener('click', onStartTimer);
 
 function onStartTimer() {
+  btnStart.disabled = true;
+  input.disabled = true;
   const timer = setInterval(() => {
     const selectedDateTime = userSelectedDate.getTime();
     const currentDateTime = new Date().getTime();
@@ -87,3 +89,13 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
+startButton.disabled = true;
+
+startButton.addEventListener('click', () => {
+  const selectedDate = datetimePicker.selectedDates[0];
+  const endTime = selectedDate.getTime();
+
+  startButton.disabled = true;
+  startCountdown(endTime);
+});
